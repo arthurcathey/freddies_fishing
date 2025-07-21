@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Freddies Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: '#114700',
+              accent: '#72A38A',
+              secondary: '#7baf94',
+            },
+            fontFamily: {
+              cabin: ['"Cabin"', 'sans-serif'],
+              cormorant: ['"Cormorant"', 'serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body class="font-cabin bg-center bg-repeat-y bg-[url('images/topomap2.jpg')]">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <button id="backToTop" class="hidden fixed bottom-4 right-4 bg-brand text-white px-2 py-2 rshadow hover:bg-accent transition z-50" aria-label="Back to top">
+      ↑ Top </button>
+
+    <header class="sticky top-0 z-50 shadow-md">
+      <nav role="navigation" aria-label="Main navigation" class="bg-brand border-b-4 border-accent w-full z-50  shadow backdrop-blur bg-brand/85">
+        <div class="container mx-auto flex items-center justify-between p-2">
+          <a href="index.html" class="flex items-center space-x-3" aria-label="Go to homepage">
+            <img src="images/logo.jpg" alt="Freddie's Fishing Service Logo" class="w-12 h-12 object-contain">
+            <span class="text-xl font-cabin hover:text-accent text-white">Freddies Fishing Service</span></a>
+          <ul class="hidden md:flex space-x-6 font-medium text-white">
+            <li><a href="index.html" class="hover:text-accent">Home</a></li>
+            <li><a href="services.html" class="hover:text-accent border-b-2 border-accent">Services</a></li>
+            <li><a href="gallery.html" class="hover:text-accent">Gallery</a></li>
+            <li><a href="contact.html" class="hover:text-accent">Contact</a></li>
+          </ul>
+          <button id="menu-btn" class="md:hidden focus:outline-none" aria-label="Toggle navigation menu">
+            <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden hidden text-white bg-brand bg-opacity-90">
+          <ul class="flex flex-col space-y-1 font-medium">
+            <li class="hover:text-accent pl-2"><a href="index.html" class="block w-full py-1">Home</a></li>
+            <li class="border-l-2 border-accent pl-2 hover:text-accent pl-2"><a href="services.html" class="block w-full py-1">Services</a></li>
+            <li class="hover:text-accent pl-2"><a href="gallery.html" class="block w-full py-1">Gallery</a></li>
+            <li class="hover:text-accent pl-2"><a href="contact.html" class="block w-full pb-2 py-1">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="container mx-auto px-4  relative">
+        <h1 class="text-center sm:text-left text-8xl pt-6 font-bold mt-6 mb-10 text-center text-brand">Guide Services</h1>
+
+        <div class="flex justify-center w-full mb-10">
+          <img src="images/fishing02.jpg" alt="Man and grandson selling fishing book at a table." class="shadow-[0_4px_10px_rgba(114,163,138,0.8)] w-25 h-25 mx-auto m-4 object-cover">
+        </div>
+
+        <button onclick="scrollGuide('left')" class="absolute left-2 top-[80%] mr-2 transform -translate-y-1/2 z-10 bg-white p-1 shadow shadow-[0_4px_10px_rgba(114,163,138,0.5)] rounded-full  hover:bg-accent" aria-label="Scroll Left">◀</button>
+        <button onclick="scrollGuide('right')" class="absolute right-2 top-[80%] ml-2 transform -translate-y-1/2 z-10 bg-white p-1 shadow shadow-[0_4px_10px_rgba(114,163,138,0.8)] rounded-full hover:bg-accent" aria-label="Scroll Right">▶</button>
+
+        <div id="guideScroll" class="flex overflow-x-auto snap-x snap-mandatory space-x-6 pb-4 w-full px-2">
+
+          <div class="flex-shrink-0 snap-start bg-white shadow shadow-[0_4px_10px_rgba(114,163,138,0.8)] p-4 text-center overflow-hidden break-words w-72 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem]">
+            <h2 class="text-2xl font-semibold text-brand mb-4">Guided Local Waters</h2>
+            <p class="text-lg mb-2 leading-relaxed">
+              Explore WNC’s best fishing spots with expert guides who know every bend in the tributary and every honey hole in the river. Gear and bait are included.</p>
+            <img src="images/1.png" alt="Guide holding a fish." class="shadow-[0_4px_10px_rgba(114,163,138,0.8)] w-full h-48 object-cover mb-3">
+            <p class="text-lg italic">"Specializing in big fish."</p>
+          </div>
+
+          <div class="flex-shrink-0 snap-start bg-white shadow shadow-[0_4px_10px_rgba(114,163,138,0.8)] p-4 text-center overflow-hidden break-words w-72 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem]">
+            <h2 class="text-2xl font-semibold text-brand mb-4">Half & Full Day Options</h2>
+            <p class="text-lg mb-2 leading-relaxed">
+              Choose flexible trips on the best sections of mountain rivers and their feeder branches. Whether you're chasing trout or muskie, we tailor the trip to your goals.</p>
+            <img src="images/IMG_2081.png" alt="Boy holding a small fish." class="w-full h-48 object-cover shadow-[0_4px_10px_rgba(114,163,138,0.8)] mb-3">
+            <p class="text-lg italic">"Any fish is bigger than no fish."</p>
+          </div>
+
+          <div class="flex-shrink-0 snap-start bg-white shadow shadow-[0_4px_10px_rgba(114,163,138,0.8)] p-4 text-center overflow-hidden break-words w-72 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem]">
+            <h2 class="text-2xl font-semibold text-brand mb-4">Educational Outing</h2>
+            <p class="text-lg mb-2 leading-relaxed">
+              Each trip includes local stories and a photo op with your best catch. Whether kept or released, it's a day to remember.</p>
+            <img src="images/bigin.png" alt="Father and two sons holding a giant fish." class="w-full h-48 shadow-[0_4px_10px_rgba(114,163,138,0.8)] object-cover mb-3">
+            <p class="text-lg italic">“Freddie’s tour was unforgettable. Can’t wait to come back!”</p>
+          </div>
+
+          <div class="flex-shrink-0 snap-start bg-white shadow shadow-[0_4px_10px_rgba(114,163,138,0.8)] p-4 text-center overflow-hidden break-words w-72 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem]">
+            <h2 class="text-2xl font-semibold text-brand mb-4">Fly Tying</h2>
+            <p class="text-lg mb-2 leading-relaxed">
+              Teaching fly tying is a passion of Freddies. He will show and explain the art of crafting your own flies, from simple patterns to complex designs.</p>
+            <img src="images/fly.jpg" alt="Picture of a homemade fly." class="w-full h-48 object-cover shadow-[0_4px_10px_rgba(114,163,138,0.8)] mb-3">
+            <p class="text-lg italic">“The craftsmanship was amazing!”</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="bg-secondary min-h-2"></div>
+    <div class="bg-accent min-h-5"></div>
+    <footer role="contentinfo" class="bg-brand text-white p-2">
+      <div class="container font-cabin mx-auto">
+        <p>2025 Freddies Fishing Service &copy;</p>
+      </div>
+    </footer>
+
+    <script>
+      function scrollGuide(direction) {
+        const guideScroll = document.getElementById("guideScroll");
+        if (!guideScroll) return;
+
+        const cards = guideScroll.querySelectorAll("div");
+        if (cards.length === 0) return;
+
+        const card = cards[0];
+        const scrollAmount = card.offsetWidth + 24;
+        const start = guideScroll.scrollLeft;
+        const maxScroll = guideScroll.scrollWidth - guideScroll.clientWidth;
+
+        let target;
+        if (direction === "right") {
+          target = start + scrollAmount > maxScroll ? 0 : start + scrollAmount;
+        } else {
+          target = start - scrollAmount < 0 ? maxScroll : start - scrollAmount;
+        }
+
+        const duration = 500;
+        let startTime = null;
+
+        function animateScroll(timestamp) {
+          if (!startTime) startTime = timestamp;
+          const progress = timestamp - startTime;
+          const percent = Math.min(progress / duration, 1);
+
+          const eased = percent < 0.5
+            ? 2 * percent * percent
+            : -1 + (4 - 2 * percent) * percent;
+
+          guideScroll.scrollLeft = start + (target - start) * eased;
+
+          if (progress < duration) {
+            requestAnimationFrame(animateScroll);
+          }
+        }
+
+        requestAnimationFrame(animateScroll);
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 300) {
+            backToTop.classList.remove('hidden');
+          } else {
+            backToTop.classList.add('hidden');
+          }
+        });
+
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Auto-scroll setup
+        const guideScroll = document.getElementById("guideScroll");
+        if (guideScroll) {
+          let autoScroll = setInterval(() => {
+            scrollGuide('right');
+          }, 5000);
+
+          guideScroll.addEventListener("mouseenter", () => clearInterval(autoScroll));
+          guideScroll.addEventListener("mouseleave", () => {
+            autoScroll = setInterval(() => {
+              scrollGuide('right');
+            }, 5000);
+          });
+        }
+      });
+    </script>
+  </body>
+
+</html>

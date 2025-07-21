@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Freddies Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: '#114700',
+              accent: '#72A38A',
+              secondary: '#7baf94',
+            },
+            fontFamily: {
+              cabin: ['"Cabin"', 'sans-serif'],
+              cormorant: ['"Cormorant"', 'serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+
+  <body class="font-cabin bg-center bg-repeat-y bg-[url('images/topomap2.jpg')]">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <button id="backToTop" class="hidden fixed bottom-4 right-4 bg-brand text-white px-2 py-2 shadow hover:bg-accent transition z-50" aria-label="Back to top">
+      ↑ Top </button>
+    <header class="sticky top-0 bg-cover bg-top z-50 text-white flex flex-col w-full shadow-md">
+
+      <nav role="navigation" aria-label="Main navigation" class="bg-brand border-b-4 border-accent w-full z-50  shadow backdrop-blur bg-brand/85">
+        <div class="container mx-auto flex items-center justify-between p-2">
+          <a href="index.html" class="flex items-center space-x-3" aria-label="Go to homepage">
+            <img src="images/logo.jpg" alt="Freddie's Fishing Service Logo" class="w-12 h-12 object-contain">
+            <span class="text-xl font-cabin hover:text-accent text-white">Freddies Fishing Service</span></a>
+          <ul class="hidden md:flex space-x-6 font-large">
+            <li><a href="index.html" class="hover:text-accent">Home</a></li>
+            <li><a href="services.html" class="hover:text-accent">Services</a></li>
+            <li><a href="gallery.html" class="hover:text-accent border-b-2 border-accent">Gallery</a></li>
+            <li><a href="contact.html" class="hover:text-accent">Contact</a></li>
+          </ul>
+
+          <button id="menu-btn" class="md:hidden focus:outline-none" aria-label="Toggle navigation menu">
+            <svg class="w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden hidden text-white bg-brand bg-opacity-90">
+          <ul class="flex flex-col space-y-1 font-medium">
+            <li class="hover:text-accent pl-2"><a href="index.html" class="block w-full py-1">Home</a></li>
+            <li class="hover:text-accent pl-2"><a href="services.html" class="block w-full py-1">Services</a></li>
+            <li class="border-l-2 border-accent pl-2 hover:text-accent pl-2"><a href="gallery.html" class="block w-full py-1">Gallery</a></li>
+            <li class="hover:text-accent pl-2"><a href="contact.html" class="block w-full pb-2 py-1">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="container mx-auto px-4 py-8">
+      <h1 class="text-8xl font-bold mb-10 mt-6 text-center sm:text-left text-brand font-cabin">Curated Works</h1>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images//papa1.jpg" alt="Man holding fish wearing a res shirt." class="w-full hover:opacity-75 transition-opacity duration-300 h-full object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_1678.jpg" alt="Man holding fish and rod." class="w-full hover:opacity-75 transition-opacity duration-300 h-full object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/benstring.jpg" alt="Teenage with a string of fish on the dock." class="w-full hover:opacity-75 transition-opacity duration-300 h-full object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_0026.JPG" alt="Attempting to kiss a fish." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_0320.JPG" alt="Fishing on the dock." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/prettyboy.jpg" alt="Beautiful trout being held." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/oceanana.jpg" alt="Group posing in front of a sign at night." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/dmf.jpg" alt="Group of people fishing on a dock at the sound." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_0224.JPG" alt="Two brothers posing by the river." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/fish14.jpg" alt="Cousins catching two black bass." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/fishing7.png" alt="Man goofing of while fishing." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/fish16.jpg" alt="Father and son hold their catch on the pier." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_0152.JPG" alt="Man in yellow hoody holding a salmon." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/fish35.jpg" alt="Man on the pier with his daughter-in-law holding a fish." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/fishing9.JPG" alt="Surf fishing holding a blue fish." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/fishing01.jpg" alt="Man holding a golden fish in a canoe." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/doug.jpg" alt="man holding a string of fish." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_0213.JPG" alt="Woman fishing at dawn." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_0180.JPG" alt="Fish in a net in the water." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/fish33.jpg" alt="Man fishing on a pier with his back turned." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/bigdawg.jpg" alt="Fish sitting in a sit on top." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/fishing5.png" alt="Muskie caught and a man posing with it." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/canoe.jpg" alt="Three people in a canoe." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/fish34.jpg" alt="Boy holding his fish on a line in the sound." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/papadad.jpg" alt="Father and son posing for a picture." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_0103.JPG" alt="Man posing with a salmon on the river bank." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/slobber.jpg" alt="Fish caught with a homemade fly." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/meanddad.jpg" alt="Father and son at a picnic table." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/papa.jpg" alt="Grumpy old man holding fishing poll." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/randy.png" alt="Man in wadders holding fish by the river." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/maxwithafish.jpg" alt="Boy in a boat holding a fish on the lake." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_0129.JPG" alt="Man fishing in a boat with a orange life vest on." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_1709.png" alt="Fishing guide holding a fish in a yellow net." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/fish17.jpg" alt="Man with a salmon in a net smiling." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/fish19.jpg" alt="Grandfather and grandson posing for a picture on a charter boat." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_1803.jpg" alt="Man on a charter boat holding a larger sheepshead fish." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_2021.jpg" alt="Fish with a homemade fly in its mouth." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/mom.jpg" alt="Wife and husband posing on the pier." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_2084.PNG" alt="Man in yellow hoody holding a sheepshead fish." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/adam.jpg" alt="Man in camo hat with a fish on the pier." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/maxnet.jpg" alt="Man and boy with a net in the river." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/fishhook.png" alt="Xray of a fish hook in a man's finger." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/gavin.jpg" alt="Kid holding a monster fish." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_0096.JPG" alt="Brothers holding halibut on a boat." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/brett.jpg" alt="Man in camo holds a fish he just caught." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/momdrew (2).jpg" alt="Woman surf fishes in he chair." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/jess.jpg" alt="Woman surf fishes in he chair." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/mom1.jpg" alt="Woman poses at the beach in october." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/redfish.jpg" alt="Man holding a pink fish he just caught." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_1925.jpg" alt="FSmall fish with a homemade fly in its mouth." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/sara.jpg" alt="Woman smiling and fishing from a boat." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/andy.jpg" alt="Man smiling with a fish in a striped shirt." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/ea9a7968-bccb-4220-bf2a-6a16577ff484.JPG" alt="Man with a larger fish on a boat in the lake." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_2105.PNG" alt="Boy wearing a life jacket holding a fishing." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/fish13.jpg" alt="Mother and son posing with a fish." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_1389.png" alt="Guide in the water holding trophy fish." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/fishing8.png" alt="Man on a boat holding a large yellow fish." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_0804.jpg" alt="A woman fly fishing." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_1154.jpg" alt="A boy smiling holding a fish on the river." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/IMG_1672.jpg" alt="FMan standing in a boat holding the fish he caught." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/fish23.jpg" alt="Two men surf fishing." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/momdog.jpg" alt="Woman hold a dog at the beach." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+        <div class="perspective-wrapper">
+          <div class="book-card aspect-square box-border md:h-48 overflow-hidden shadow-[0_4px_10px_rgba(114,163,138,0.5)]">
+            <img src="images/fish24.jpg" alt="Man posing with girl on the beach with a fish." class="w-full h-full hover:opacity-75 transition-opacity duration-300 object-contain cursor-pointer" onclick="openModal(this)">
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="myModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50" onclick="outsideModal(event)">
+      <div class="relative max-w-4xl w-full max-h-[90vh] overflow-auto p-4 bg-white rounded">
+        <button class="absolute top-2 right-4 text-3xl text-gray-800 font-bold" onclick="closeModal()">&times;</button>
+        <img id="img01" src="" class="mx-auto max-w-full h-auto rounded" alt="Modal Preview">
+      </div>
+    </div>
+
+    <div class="bg-secondary min-h-2"></div>
+    <div class="bg-accent min-h-5"></div>
+    <footer role="contentinfo" class="bg-brand text-white p-2">
+      <div class="container font-cabin mx-auto">
+        <p>2025 Freddies Fishing Service &copy;</p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".book-card").forEach((card, i) => {
+          setTimeout(() => card.classList.add("visible"), i * 200);
+        });
+      });
+
+      const modal = document.getElementById("myModal");
+      const modalImg = document.getElementById("img01");
+
+      function openModal(img) {
+        modal.classList.remove("hidden");
+        modalImg.src = img.src;
+      }
+
+      function closeModal() {
+        modal.classList.add("hidden");
+        modalImg.src = "";
+      }
+
+      function outsideModal(e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      }
+
+      document.addEventListener("keydown", e => {
+        if (e.key === "Escape") closeModal();
+      });
+
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 300) {
+            backToTop.classList.remove('hidden');
+          } else {
+            backToTop.classList.add('hidden');
+          }
+        });
+
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+    </script>
+  </body>
+
+</html>

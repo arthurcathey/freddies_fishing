@@ -1,0 +1,219 @@
+<!-- <?php
+session_start();
+if (empty($_SESSION['csrf_token'])) {
+  $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+} -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Freddies Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: '#114700',
+              accent: '#72A38A',
+              secondary: '#7baf94',
+            },
+            fontFamily: {
+              cabin: ['"Cabin"', 'sans-serif'],
+              cormorant: ['"Cormorant"', 'serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+
+  <body class="font-cabin bg-center bg-repeat-y bg-[url('images/topomap2.jpg')]">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <button id="backToTop" class="hidden fixed bottom-4 right-4 bg-brand text-white px-2 py-2 hover:bg-accent transition z-50" aria-label="Back to top">↑ Top</button>
+
+    <header class="sticky top-0 bg-cover bg-top text-white flex flex-col w-full shadow-md">
+      <nav role="navigation" aria-label="Main navigation" class="bg-brand border-b-4 border-accent w-full z-50 shadow backdrop-blur bg-brand/85">
+        <div class="container mx-auto flex items-center justify-between p-2">
+          <a href="index.html" class="flex items-center space-x-3" aria-label="Go to homepage">
+            <img src="images/logo.jpg" alt="Freddie's Fishing Service Logo" class="w-12 h-12 object-contain">
+            <span class="text-xl font-cabin hover:text-accent text-white">Freddies Fishing Service</span>
+          </a>
+          <ul class="hidden md:flex space-x-6 font-medium">
+            <li><a href="index.html" class="hover:text-accent">Home</a></li>
+            <li><a href="services.html" class="hover:text-accent">Services</a></li>
+            <li><a href="gallery.html" class="hover:text-accent">Gallery</a></li>
+            <li><a href="contact.html" class="hover:text-accent border-b-2 border-accent">Contact</a></li>
+          </ul>
+          <button id="menu-btn" class="md:hidden">
+            <svg class="w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden text-white bg-brand bg-opacity-90">
+          <ul class="flex flex-col space-y-1 font-medium">
+            <li class="hover:text-accent pl-2"><a href="index.html" class="block w-full py-1">Home</a></li>
+            <li class="hover:text-accent pl-2"><a href="services.html" class="block w-full py-1">Services</a></li>
+            <li class="hover:text-accent pl-2"><a href="gallery.html" class="block w-full py-1">Gallery</a></li>
+            <li class="border-l-2 border-accent pl-2 hover:text-accent pl-2"><a href="contact.html" class="block w-full pb-2 py-1">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="container mx-auto px-4 py-8">
+      <h1 class="text-8xl font-bold text-brand text-center sm:text-left mb-10">Drop a line</h1>
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <form id="contactForm" method="POST" action="process-form.php" class="bg-white shadow shadow-[0_4px_10px_rgba(114,163,138,0.8)] p-4 space-y-4" novalidate>
+          <!-- CSRF Token and Honeypot -->
+          <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?? '' ?>">
+          <input type="text" name="nickname" class="hidden" tabindex="-1" autocomplete="off aria-hidden="true">
+
+          <div>
+            <p class="text-red-900 p-2">*This form is a road to nowhere. At this time.</p>
+            <label for="name" class="block text-brand font-semibold">Name</label>
+            <input type="text" id="name" name="name" maxlength="100" required aria-describedby="nameError" class="w-full border border-accent px-3 py-2 focus:outline-none focus:ring-2 focus:ring-accent">
+            <p id="nameError" class="text-red-600 text-sm hidden">Name is required.</p>
+          </div>
+
+          <div>
+            <label for="email" class="block text-brand font-semibold">Email</label>
+            <input type="email" id="email" name="email" maxlength="150" required aria-describedby="emailError" class="w-full border border-accent px-3 py-2 focus:outline-none focus:ring-2 focus:ring-accent">
+            <p id="emailError" class="text-red-600 text-sm hidden">Valid email is required.</p>
+          </div>
+
+          <div>
+            <label for="message" class="block text-brand font-semibold">Message</label>
+            <textarea id="message" name="message" maxlength="1000" rows="5" required aria-describedby="messageError" class="w-full border border-accent px-3 py-2 focus:outline-none focus:ring-2 focus:ring-accent"></textarea>
+            <p id="messageError" class="text-red-600 text-sm hidden">Please enter a message.</p>
+          </div>
+
+          <button type="submit" class="bg-brand text-white px-6 py-2 w-full md:w-auto hover:bg-accent transition">Send Message</button>
+          <p class="text-gray-600 mt-4">By submitting, you agree to our <a href="privacy.html" class="text-accent underline">Privacy Policy</a>.</p>
+          <div id="formSuccess" class="hidden text-green-600 font-semibold text-center mt-4">✅ Message sent successfully!</div>
+        </form>
+
+        <div class="bg-white p-6 shadow-[0_4px_10px_rgba(114,163,138,0.8)] space-y-2 text-brand text-center md:text-left">
+          <h2 class="text-2xl font-bold">Claim Your Spot</h2>
+          <p><strong>Email:</strong> <a href="mailto:freddie@example.com" class="text-accent hover:underline">freddie@fakeemail.edu</a></p>
+          <p><strong>Phone:</strong> <a href="tel:828123456" class="text-accent hover:underline">987.123.456</a></p>
+          <p><strong>Location:</strong> <span class="text-accent">Rosman, NC</span></p>
+          <p><strong>Hours:</strong> <span class="text-accent">10:45 AM – drinkin' time</span></p>
+          <img src="images/fishing6.png" alt="Man holding a fish" class="w-full h-auto shadow-[0_4px_10px_rgba(114,163,138,0.8)] mt-6">
+        </div>
+      </div>
+
+      <section class="py-8 mt-8">
+        <div class="max-w-6xl mx-auto px-4">
+          <h2 class="text-5xl font-bold text-brand text-center sm:text-left mb-6">Our Location</h2>
+          <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">
+            <iframe class="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12285.826144415312!2d-82.81090846061475!3d35.14723721843553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8859af1609ac42f9%3A0x5692b3020388b7e9!2sLyons%20Mountain%20Bridge!5e0!3m2!1sen!2sus!4v1751071339046!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="bg-secondary min-h-2"></div>
+    <div class="bg-accent min-h-5"></div>
+    <footer role="contentinfo" class="bg-brand text-white p-2">
+      <div class="container font-cabin mx-auto">
+        <p>2025 Freddies Fishing Service &copy;</p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn?.addEventListener('click', () => {
+          mobileMenu?.classList.toggle('hidden');
+        });
+
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 300) {
+            backToTop?.classList.remove('hidden');
+          } else {
+            backToTop?.classList.add('hidden');
+          }
+        });
+
+        backToTop?.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        const form = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const successMsg = document.getElementById('formSuccess');
+
+        function toggleError(id, show) {
+          const el = document.getElementById(id);
+          if (!el) return;
+          el.classList.toggle('hidden', !show);
+        }
+
+        form?.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          document.querySelectorAll('.text-red-600').forEach(el => el.classList.add('hidden'));
+
+          let isValid = true;
+          let firstInvalidField = null;
+
+          if (!nameInput?.value.trim()) {
+            toggleError('nameError', true);
+            isValid = false;
+            firstInvalidField ??= nameInput;
+          }
+
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailInput?.value.trim() || !emailPattern.test(emailInput.value.trim())) {
+            toggleError('emailError', true);
+            isValid = false;
+            firstInvalidField ??= emailInput;
+          }
+
+          if (!messageInput?.value.trim()) {
+            toggleError('messageError', true);
+            isValid = false;
+            firstInvalidField ??= messageInput;
+          }
+
+          if (!isValid) {
+            firstInvalidField?.focus();
+            return;
+          }
+
+          try {
+            const formData = new FormData(form);
+            const response = await fetch('process-form.php', {
+              method: 'POST',
+              body: formData,
+            });
+
+            if (response.ok) {
+              successMsg?.classList.remove('hidden');
+              form.reset();
+              setTimeout(() => {
+                successMsg?.classList.add('hidden');
+              }, 5000);
+            } else {
+              alert('Failed to send message. Please try again.');
+            }
+          } catch {
+            alert('Error sending message. Please try again.');
+          }
+        });
+      });
+    </script>
+
+  </body>
+
+</html>
