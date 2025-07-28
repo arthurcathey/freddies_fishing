@@ -69,10 +69,11 @@ if (empty($_SESSION['csrf_token'])) {
     <main id="main-content" class="container mx-auto px-4 py-8">
       <h1 class="text-8xl font-bold text-brand text-center sm:text-left mb-10">Drop a line</h1>
       <div class="grid md:grid-cols-2 gap-10 items-start">
+
         <form id="contactForm" method="POST" action="process-form.php" class="bg-white shadow shadow-[0_4px_10px_rgba(114,163,138,0.8)] p-4 space-y-4" novalidate>
-          <!-- CSRF Token and Honeypot -->
+
           <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?? '' ?>">
-          <input type="text" name="nickname" class="hidden" tabindex="-1" autocomplete="off aria-hidden="true">
+          <input type="text" name="nickname" class="hidden" tabindex="-1" autocomplete="off aria-hidden=" true">
 
           <div>
             <p class="text-red-900 p-2">*This form is a road to nowhere. At this time.</p>

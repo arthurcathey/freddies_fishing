@@ -66,7 +66,7 @@
         <h1 class="text-center sm:text-left text-8xl pt-6 font-bold mt-6 mb-10 text-center text-brand">Guide Services</h1>
 
         <div class="flex justify-center w-full mb-10">
-          <img src="images/fishing02.jpg" alt="Man and grandson selling fishing book at a table." class="shadow-[0_4px_10px_rgba(114,163,138,0.8)] w-25 h-25 mx-auto m-4 object-cover">
+          <img src="images/fishing02.jpg" alt="Man and grandson selling fishing books at a table." class="shadow-[0_4px_10px_rgba(114,163,138,0.8)] w-25 h-25 mx-auto m-4 object-cover">
         </div>
 
         <button onclick="scrollGuide('left')" class="absolute left-2 top-[80%] mr-2 transform -translate-y-1/2 z-10 bg-white p-1 shadow shadow-[0_4px_10px_rgba(114,163,138,0.5)] rounded-full  hover:bg-accent" aria-label="Scroll Left">◀</button>
@@ -160,14 +160,14 @@
       }
 
       document.addEventListener('DOMContentLoaded', () => {
-        // Mobile menu toggle
+        
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         menuBtn.addEventListener('click', () => {
           mobileMenu.classList.toggle('hidden');
         });
 
-        // Back to top button
+        
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
           if (window.scrollY > 300) {
@@ -181,7 +181,7 @@
           window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Auto-scroll setup
+        
         const guideScroll = document.getElementById("guideScroll");
         if (guideScroll) {
           let autoScroll = setInterval(() => {
